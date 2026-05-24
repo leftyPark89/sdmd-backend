@@ -8,4 +8,6 @@ import java.util.List;
 @Mapper
 public interface DistrictMapper {
     List<DistrictResponseDto> selectDistrictList();
+    DistrictResponseDto findDistrictById(Long id);
+
 }

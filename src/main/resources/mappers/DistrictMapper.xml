@@ -20,4 +20,24 @@
             district
     </select>
 
+
+    <select id="findDistrictById" resultType="com.sdmd.sdmdbackend.dto.DistrictResponseDto">
+        SELECT
+            id,
+            gu_name,
+            gu_code,
+            hospital_count,
+            mart_count,
+            subway_count,
+            strong_crime_count,
+            theft_crime_count,
+            assault_crime_count,
+            lat,
+            lng
+        FROM
+            district
+        WHERE
+            id = #{id}
+    </select>
+
 </mapper>

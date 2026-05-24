@@ -18,4 +18,7 @@ public class DistrictService {
     }
 
 
+    public DistrictResponseDto getDistrictById(Long id) {
+        return districtMapper.findDistrictById(id);
+    }
 }
