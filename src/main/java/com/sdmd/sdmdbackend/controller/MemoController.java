@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/api/memo")
 public class MemoController {
-
+    // 커밋용 주석
     private final MemoService service;
 
     // 등록
