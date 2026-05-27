@@ -1,5 +1,6 @@
 package com.sdmd.sdmdbackend.service;
 
+import com.sdmd.sdmdbackend.dto.LikesRequestDto;
 import com.sdmd.sdmdbackend.dto.LikesResponseDto;
 import com.sdmd.sdmdbackend.mapper.LikesMapper;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +14,15 @@ public class LikesService {
 
     private final LikesMapper mapper;
 
-    public List<LikesResponseDto> getAllList() {
+    public List<LikesResponseDto> getLikeList() {
         return mapper.selectLikeList();
+    }
+
+    public void addLike(LikesRequestDto dto) {
+        mapper.insertLikes(dto);
+    }
+
+    public void deleteLike(long dto) {
+        mapper.deleteLike(dto);
     }
 }

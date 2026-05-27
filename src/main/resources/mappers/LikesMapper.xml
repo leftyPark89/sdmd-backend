@@ -4,14 +4,28 @@
 <mapper namespace="com.sdmd.sdmdbackend.mapper.LikesMapper">
 
     <select id="selectLikeList" resultType="com.sdmd.sdmdbackend.entity.Likes">
-        SELECT id,
-        FROM district
-        WHERE district.id
-                  IN (SELECT district_id
-                      FROM likse
-                      WHERE user_id = #{id})
+        SELECT
+            id,
+            user_id,
+            district_id,
+            created_at
+        FROM likes
     </select>
 
+
+    <insert id="insertLikes">
+        INSERT INTO likes
+            (user_id, district_id)
+        VALUES
+            (#{userId}, #{districtId})
+
+    </insert>
+
+
+    <delete id="deleteLike">
+        DELETE FROM likes
+        WHERE district_id = #{districtId}
+    </delete>
 
 
 
