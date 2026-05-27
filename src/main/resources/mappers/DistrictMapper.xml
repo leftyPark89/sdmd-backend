@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sdmd.sdmdbackend.mapper.DistrictMapper">
+
+    <select id="selectDistrictList" resultType="com.sdmd.sdmdbackend.dto.DistrictResponseDto">
+        SELECT
+            id,
+            gu_name,
+            gu_code,
+            hospital_count,
+            mart_count,
+            subway_count,
+            strong_crime_count,
+            theft_crime_count,
+            assault_crime_count,
+            lat,
+            lng
+        FROM
+            district
+    </select>
+
+
+    <select id="findDistrictById" resultType="com.sdmd.sdmdbackend.dto.DistrictResponseDto">
+        SELECT
+            id,
+            gu_name,
+            gu_code,
+            hospital_count,
+            mart_count,
+            subway_count,
+            strong_crime_count,
+            theft_crime_count,
+            assault_crime_count,
+            lat,
+            lng
+        FROM
+            district
+        WHERE
+            id = #{id}
+    </select>
+
+</mapper>

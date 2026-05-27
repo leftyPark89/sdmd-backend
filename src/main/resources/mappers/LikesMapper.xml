@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sdmd.sdmdbackend.mapper.LikesMapper">
+
+    <select id="selectLikeList" resultType="com.sdmd.sdmdbackend.entity.Likes">
+        SELECT
+            id,
+            user_id,
+            district_id,
+            created_at
+        FROM likes
+    </select>
+
+
+    <insert id="insertLikes">
+        INSERT INTO likes
+            (user_id, district_id)
+        VALUES
+            (#{userId}, #{districtId})
+
+    </insert>
+
+
+    <delete id="deleteLike">
+        DELETE FROM likes
+        WHERE district_id = #{districtId}
+    </delete>
+
+
+
+
+</mapper>
