@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sdmd.sdmdbackend.mapper.MemoMapper">
+
+
+    <insert id="insertMemo">
+        INSERT INTO memo
+            (user_id, district_id, content, created_at)
+        VALUES
+            (#{userId}, #{districtId}, #{content}, NOW())
+    </insert>
+
+    <delete id = "deleteMemo">
+        DELETE FROM memo
+        WHERE district_id = #{districtId}
+    </delete>
+
+    <update id="updateMemo">
+        UPDATE memo
+        SET content = #{dto.content},
+            updated_at = NOW()
+        WHERE district_id = #{districtId}
+            AND user_id = #{dto.userId}
+    </update>
+
+    <select id="selectFindId" resultType="com.sdmd.sdmdbackend.dto.MemoResponseDto">
+        SELECT
+            user_id,
+            district_id,
+            content,
+            created_at,
+            updated_at
+        FROM
+            memo
+        WHERE
+            district_id = #{districtId}
+    </select>
+
+
+
+
+</mapper>
