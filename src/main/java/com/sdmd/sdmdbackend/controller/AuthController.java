@@ -22,4 +22,9 @@ public class AuthController {
         return "회원가입 완료";
     }
 
+    @PostMapping("/login")
+    public String login(@RequestBody UserRequestDto dto) {
+        return authService.login(dto);
+    }
+
 }
